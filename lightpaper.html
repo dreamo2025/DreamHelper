@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DREAMHELPER (DREAMO) — Litepaper</title>
+  <meta name="description" content="DreamHelper (DREAMO) — Litepaper. A community-driven memetoken to help people dream again." />
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/bootstrap-5.0.0-beta2.min.css" />
+    <link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    /* ========== Brand colours ========== */
+    :root{
+      --gold: #ffc728;        /* primary Gold (80%) */
+      --deep-blue: #324B9A;   /* Deep Blue (10%) */
+      --light-blue: #4EA3FF;  /* Light Blue (5%) */
+      --midnight-blue: #050A1E;/* Midnight Blue (5%) */
+      --bg: #050A1E;          /* page background (very dark blue) */
+      --card: #09283b;        /* card background */
+      --muted: #9fb3c6;
+      --accent-1: var(--gold);
+      --text: #fffdfa;
+      --max-width: 1000px;
+      --radius: 14px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* ========== Basic layout ========== */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 20px;
+      display:flex;
+      justify-content:center;
+      font-size:16px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:22px;
+    }
+    .logo {
+      width:64px;
+      height:64px;
+      border-radius:12px;
+      background: linear-gradient(135deg,var(--gold), #e7a826 60%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:var(--deep-blue);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    }
+    header h1{
+      font-size:20px;
+      margin:0;
+      letter-spacing:0.6px;
+      color: white;
+    }
+    header p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Hero */
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:24px;
+      border-radius:var(--radius);
+      display:flex;
+      gap:24px;
+      align-items:center;
+      margin-bottom:20px;
+    }
+    .hero .left{
+      flex:1;
+    }
+    .hero h2{
+      margin:0 0 8px 0;
+      font-size:28px;
+      color:var(--text);
+    }
+    .hero p{margin:0;color:var(--muted)}
+
+    .cta-row{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      background:var(--gold);
+      color:var(--deep-blue);
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow: 0 6px 20px rgba(16,24,40,0.4);
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow:none;
+    }
+
+    /* Main content columns */
+    .grid{
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap:20px;
+    }
+    @media (max-width:900px){ .grid{ grid-template-columns: 1fr; } .hero{flex-direction:column;align-items:flex-start} }
+
+    /* Card */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      padding:18px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    /* Tokenomics donut - CSS conic-gradient */
+    .donut-wrap{
+      width:320px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+    }
+    .donut{
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:
+        conic-gradient(
+          var(--gold) 0deg calc(360deg * 0.80),
+          var(--deep-blue) calc(360deg * 0.80) calc(360deg * 0.90),
+          var(--light-blue) calc(360deg * 0.90) calc(360deg * 0.95),
+          var(--midnight-blue) calc(360deg * 0.95) 360deg
+        );
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      box-shadow: 0 10px 30px rgba(3,6,10,0.6);
+    }
+    .donut::after{
+      content:"";
+      position:absolute;
+      width:120px;height:120px;border-radius:50%;
+      background:linear-gradient(180deg,#052633, #0b2f41);
+      box-shadow: inset 0 4px 12px rgba(255,255,255,0.02);
+      display:block;
+    }
+    .donut .center {
+      position:relative;
+      z-index:2;
+      text-align:center;
+      color:var(--text);
+      font-weight:700;
+    }
+    .legend{width:100%;display:flex;flex-direction:column;gap:6px;margin-top:8px;font-size:14px}
+    .legend .row{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;border-radius:8px}
+    .legend .row .left{display:flex;gap:10px;align-items:center}
+    .sw{width:16px;height:16px;border-radius:4px;box-shadow: 0 4px 10px rgba(0,0,0,0.35)}
+    .muted{color:var(--muted);font-size:13px}
+
+    /* Content */
+    .content h3{margin-top:0;color:var(--gold)}
+    .content p{color:var(--muted)}
+    .list{margin:8px 0 16px 0;padding-left:18px}
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .step{padding:12px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+    .step h4{margin:0 0 6px 0;color:var(--text)}
+    .footnote{font-size:13px;color:var(--muted);margin-top:14px}
+
+    footer{margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
+    a.inline{color:var(--gold);text-decoration:underline}
+  </style>
+</head>
+<body>
+      <!-- ========================= preloader start ========================= -->
+    <div class="preloader">
+      <div class="loader">
+        <div class="spinner">
+          <div class="spinner-container">
+            <div class="spinner-rotator">
+              <div class="spinner-left">
+                <div class="spinner-circle"></div>
+              </div>
+              <div class="spinner-right">
+                <div class="spinner-circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+		<!-- preloader end -->
+  <div class="wrap">
+
+    <header>
+      <div class="logo" style="width: 70px;">
+        <img src="assets/img/about/logo.png" alt="logo" style="height: 50px;">
+      </div>
+      <div>
+        <h1>DREAMHELPER — Litepaper (DREAMO)</h1>
+        <p>Community-driven memetoken to spark imagination, positivity & collective action</p>
+      </div>
+    </header>
+
+    <section class="hero card" aria-labelledby="hero-title">
+      <div class="left">
+        <h2 id="hero-title">Help people dream again.</h2>
+        <p>A light-hearted memetoken built around creativity, kindness and community-driven micro-projects. This page is the web-ready Litepaper v1.0 for DREAMO.</p>
+
+        <div class="cta-row">
+          <a class="btn" href="litepaper.pdf"  rel="noopener">Download PDF</a>
+          <a class="btn secondary" href="litepaper.md"  rel="noopener">View Markdown</a>
+        </div>
+      </div>
+
+      <div style="width:260px;flex-shrink:0;">
+        <div style="background:linear-gradient(135deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:10px;text-align:center;">
+          <strong style="display:block;font-size:18px;color:var(--gold)">Total Supply</strong>
+          <div style="font-weight:700;font-size:20px;margin-top:8px">1,000,000,000 DREAMO</div>
+          <div style="color:var(--muted);margin-top:8px;font-size:13px">Fixed supply • Community driven</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid" role="main">
+      <!-- LEFT: Tokenomics & Donut -->
+      <aside class="donut-wrap card">
+        <div class="donut" role="img" aria-label="Tokenomics: 80% Liquidity, 10% DreamFund, 5% Marketing, 5% Team">
+          <div class="center">
+            <div style="font-size:18px">80%</div>
+            <div style="font-size:12px;color:var(--muted)">Pump.fun (Liquidity)</div>
+          </div>
+        </div>
+
+        <div class="legend">
+          <div class="row"><div class="left"><span class="sw" style="background:var(--gold)"></span><strong>Liquidity</strong></div><div>80%</div></div>
+          <div class="row"><div class="left"><span class="sw" style="background:var(--deep-blue)"></span><strong>DreamFund</strong></div><div>10%</div></div>
+          <div class="row"><div class="left"><span class="sw" style="background:var(--light-blue)"></span><strong>Marketing</strong></div><div>5%</div></div>
+          <div class="row"><div class="left"><span class="sw" style="background:var(--midnight-blue)"></span><strong>Team (Locked)</strong></div><div>5%</div></div>
+        </div>
+
+        <div class="muted" style="text-align:center;margin-top:10px">Inside Donut: <strong>80% Pump.fun (Liquidity)</strong></div>
+      </aside>
+
+      <!-- RIGHT: Content -->
+      <section class="content card" aria-labelledby="content-title">
+        <h3 id="content-title">1. Introduction</h3>
+        <p class="muted">
+          DreamHelper (DREAMO) is a fun, community-driven memetoken built to spark imagination, positivity, and collective action.
+          At its core, DREAMO represents the spirit of helping people dream again — through creativity, storytelling, and community-powered initiatives.
+        </p>
+
+        <h3>2. The Vision</h3>
+        <p class="muted">“Help people dream again, and build a global movement of creativity and kindness.”</p>
+        <ul class="list muted" style="text-align: justify;">
+          <li>Create a positive global digital movement</li>
+          <li>Support community-driven micro-projects</li>
+          <li>Launch DreamFund initiatives for students, creators, and small community causes</li>
+          <li>Build simple Web3 tools that help people set, track, and achieve their dreams</li>
+          <li>Activate fun global challenges using the Dreamo mascot</li>
+        </ul>
+
+        <h3>3. The Dreamo Mascot</h3>
+        <p class="muted">Dreamo is the official mascot — a joyful, colourful dream-helper creature. Dreamo represents hope, drives storytelling and will appear in visuals, stickers, challenges and community events.</p>
+
+        <h3>4. Token Utility</h3>
+        <div class="muted">
+          <strong>DreamFund Micro-Grants</strong> — A percentage of the supply is allocated to DreamFund to support students, creators, community mini-causes and educational challenges.
+        </div>
+        <ul class="list muted">
+          <li>Dream Challenges — weekly creativity tasks, storytelling & vote-based community competitions</li>
+          <li>DreamHelper Community App (Phase 3) — write dreams, track progress, join challenges, earn DreamPoints (off-chain)</li>
+          <li>Mascot-based merch & NFTs (future optional)</li>
+        </ul>
+
+        <h3>5. Tokenomics</h3>
+        <p class="muted">Fixed Supply: <strong>1,000,000,000 DREAMO</strong></p>
+        <table style="width:100%;margin-top:8px;border-collapse:collapse;font-size:14px">
+          <thead style="display:none"><tr><th>Allocation</th><th>Percentage</th><th>Purpose</th></tr></thead>
+          <tbody style="color:var(--muted)">
+            <tr style="border-top:1px solid rgba(255,255,255,0.02)"><td style="padding:10px 6px"><strong>Liquidity (Pump.fun)</strong></td><td style="text-align:right;padding:10px 6px">80%</td></tr>
+            <tr style="border-top:1px solid rgba(255,255,255,0.02)"><td style="padding:10px 6px"><strong>DreamFund</strong></td><td style="text-align:right;padding:10px 6px">10%</td></tr>
+            <tr style="border-top:1px solid rgba(255,255,255,0.02)"><td style="padding:10px 6px"><strong>Marketing</strong></td><td style="text-align:right;padding:10px 6px">5%</td></tr>
+            <tr style="border-top:1px solid rgba(255,255,255,0.02)"><td style="padding:10px 6px"><strong>Team (Locked)</strong></td><td style="text-align:right;padding:10px 6px">5%</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-top:18px">6. Roadmap (Simple & Achievable)</h3>
+        <div class="timeline">
+          <div class="step">
+            <h4>Phase 1 — The Awakening</h4>
+            <p class="muted">Dreamo Mascot Creation • DREAMO Branding • Launch of Mini Website (GitHub prelaunch) • Community Building • Litepaper Release</p>
+          </div>
+          <div class="step">
+            <h4>Phase 2 — The Dream Wave</h4>
+            <p class="muted">Full Website • Telegram Growth • Weekly Dream Challenges • DreamFund Activation • Token Listing After Campaign</p>
+          </div>
+          <div class="step">
+            <h4>Phase 3 — The Dream Tools</h4>
+            <p class="muted">DreamHelper App (simple) • Dreamo stickers & GIFs • DreamPoints (off-chain)</p>
+          </div>
+          <div class="step">
+            <h4>Phase 4 — The Dreamverse</h4>
+            <p class="muted">International Dream Challenge Tour • Dreamo World NFTs (optional) • DreamHub</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top:18px">7. Community Philosophy</h3>
+        <p class="muted">DREAMO is built on three simple principles:</p>
+        <ul class="list muted">
+          <li>⭐ Fun — A token that brings joy</li>
+          <li>⭐ Creativity — A community that creates</li>
+          <li>⭐ Kindness — A movement that helps others</li>
+        </ul>
+
+        <h3 style="margin-top:18px">8. Disclaimers</h3>
+        <p class="muted">This Litepaper is a simplified overview of the DreamHelper project and may evolve with community decisions. DREAMO is not financial advice — it is a creative, community-driven digital token.</p>
+      </section>
+    </div>
+
+    <footer>
+      <div>© DreamHelper — RISE WITH DREAMO. PASS THE BATTON. </div>
+    </footer>
+
+  </div>
+   <!-- ========================= JS here ========================= -->
+    <script src="assets/js/bootstrap-5.0.0-beta2.min.js"></script>
+    <script src="assets/js/count-up.min.js"></script>
+    <script src="assets/js/tiny-slider.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/polifill.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
