@@ -57,6 +57,8 @@ a,
 a:focus,
 a:hover {
   text-decoration: none;
+  border-radius: 15px;
+  padding: 5px;
 }
 
 i,
@@ -1968,4 +1970,9 @@ body{
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+.mailsty{
+  border-radius: 10px;
+
 }
